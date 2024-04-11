@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function createPostList() {
     fetch('https://dummyjson.com/posts')
      .then(res => res.json())
      .then(console.log);
-
+ 
     //*GETS SINGLE POST*//
     fetch('https://dummyjson.com/posts/1')
      .then(res => res.json())
