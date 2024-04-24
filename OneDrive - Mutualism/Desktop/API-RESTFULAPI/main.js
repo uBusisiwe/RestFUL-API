@@ -76,10 +76,16 @@ document.addEventListener("DOMContentLoaded", function createPostList() {
   
     // Populate post list
     posts.forEach(post => {
-      const listItem = document.createElement("post");
-      const link = document.createElement("https://dummyjson.com/docs/posts");
-      link.textContent = post.DummyJSON;
-      link.href = `Post ${post.id}`; // Navigate to post page with ID parameter
+      const listItem = document.createElement("li");
+      const link = document.createElement("a");
+      link.textContent = post.title;
+      link.href = `#`; // Navigate to post page with ID parameter
+      link.addEventListener('click',()=>{
+          const urlSearchParams = new URLSearchParams({ id: post.id, filter: 'images' }); 
+          const finalUrl = 'post-page.html' + '?' + urlSearchParams.toString();
+          window.location.href = finalUrl;
+      })
+      link.style.cursor = 'pointer'
       listItem.appendChild(link);
       postList.appendChild(listItem);
     });
